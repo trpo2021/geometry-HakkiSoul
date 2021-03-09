@@ -4,6 +4,22 @@
 #include <ctype.h>
 #define K 50
 
+int figure_name_check(char* input_array)
+{
+    char figure[6] = "Circle";
+    int i = 0;
+    int k = 0;
+
+    for(i = 0; i < 6; i++) {
+        if(input_array[i] != figure[i]) {
+            k = k + 1;
+            break;
+        }
+    }
+
+    return k;
+}
+
 int data_check(int s, char* input_array)
 {
     int j = 0;
@@ -49,7 +65,6 @@ int data_check(int s, char* input_array)
 
 int main()
 {
-    char figure[6] = "Circle";
     char array[K];
     char input_array[K] = {0};
 
@@ -72,12 +87,8 @@ int main()
     fclose(psyh);
 
     int k = 0;
-    for(i = 0; i < 6; i++) {
-        if(input_array[i] != figure[i]) {
-            k = k + 1;
-            break;
-        }
-    }
+    
+    k = figure_name_check(input_array);
 
     int s = 7;
     int j = 0;
