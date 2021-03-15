@@ -1,4 +1,4 @@
-APP_NAME = geometry
+APP_NAME = Geometriya
 LIB_NAME = libgeometry
 
 CFLAGS = -Wall -Wextra -Werror
