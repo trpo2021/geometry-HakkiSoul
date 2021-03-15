@@ -1,4 +1,5 @@
 #ignore object files
 *.a
-geo
+geometry
+Geo
 Geometry
