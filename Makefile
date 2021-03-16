@@ -6,9 +6,9 @@ CPPFLAGS = -I src -MP -MMD
 LDFLAGS =
 LDLIBS =
 
-BIN_DIR = bin
-OBJ_DIR = obj
-SRC_DIR = src
+BIN_DIR = bn
+OBJ_DIR = oj
+SRC_DIR = sc
 
 APP_PATH = $(APP_NAME)
 LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
