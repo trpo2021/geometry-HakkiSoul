@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int figure_name_check(char* input_array)
+int figur_name_check(char* input_array)
 {
     char figure[6] = "Circle";
     int i = 0;
@@ -21,6 +21,7 @@ int figure_name_check(char* input_array)
 int data_check(int s, char* input_array)
 {
     int j = 0;
+    
     if(input_array[s] == ' ') {
         j++;
     } else {
