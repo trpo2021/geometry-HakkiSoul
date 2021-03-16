@@ -14,12 +14,11 @@ int main()
 
     psyh = fopen("text.txt", "r");
     
-    int i;
+    int i = 0;
 
     if (!psyh) {
         printf("Cant open this file\n");
     } else {
-        i = 0;
         while (i < K) {
             fscanf(psyh, "%c", &input_array[i]);
             ++i;
@@ -30,7 +29,7 @@ int main()
 
     int k = 0;
     
-    k = figure_name_check(input_array);
+    k = figur_name_check(input_array);
 
     int s = 7;
     int j = 0;
