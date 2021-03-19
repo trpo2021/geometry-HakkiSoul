@@ -1,4 +1,5 @@
 #ignore object files
 *.a
+*.d
+*.o
 geometry
-Geometry
