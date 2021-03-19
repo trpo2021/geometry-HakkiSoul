@@ -1,8 +1,8 @@
+#include <ctype.h>
 #include <libgeometry/geometry.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <ctype.h>
 #define K 50
 
 int main()
@@ -10,10 +10,10 @@ int main()
     char array[K];
     char input_array[K] = {0};
 
-    FILE *psyh = NULL;
+    FILE* psyh = NULL;
 
     psyh = fopen("text.txt", "r");
-    
+
     int i = 0;
 
     if (!psyh) {
@@ -28,17 +28,17 @@ int main()
     fclose(psyh);
 
     int k = 0;
-    
+
     k = figur_name_check(input_array);
 
     int s = 7;
     int j = 0;
     int m;
-    
+
     m = data_check(s, input_array);
 
     if (k > 0) {
-        for(j = 0; j < K; j++) {
+        for (j = 0; j < K; j++) {
             printf("%c", input_array[j]);
         }
 
@@ -47,7 +47,7 @@ int main()
 
     } else {
         if (m > 0) {
-            for(m = 0; m < K; m++) {
+            for (m = 0; m < K; m++) {
                 printf("%c", input_array[m]);
             }
 
@@ -61,7 +61,6 @@ int main()
                         array[k - m] = input_array[k + 1];
                     }
                 }
-
             }
 
             float area = 0, perimetr = 0;
@@ -71,7 +70,7 @@ int main()
             area = M_PI * radius * radius;
             perimetr = 2 * M_PI * radius;
 
-            for(m = 0; m < K; m++) {
+            for (m = 0; m < K; m++) {
                 printf("%c", input_array[m]);
             }
 
@@ -79,7 +78,6 @@ int main()
             printf("perimeter = %.3f\n", perimetr);
             printf("area = %.3f\n", area);
         }
-
     }
 
     return 0;

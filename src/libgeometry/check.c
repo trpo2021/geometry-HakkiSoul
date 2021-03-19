@@ -8,8 +8,8 @@ int figur_name_check(char* input_array)
     int i = 0;
     int k = 0;
 
-    for(i = 0; i < 6; i++) {
-        if(input_array[i] != figure[i]) {
+    for (i = 0; i < 6; i++) {
+        if (input_array[i] != figure[i]) {
             k = k + 1;
             break;
         }
@@ -21,12 +21,15 @@ int figur_name_check(char* input_array)
 int data_check(int s, char* input_array)
 {
     int j = 0;
-    
-    if(input_array[s] == ' ') {
+
+    if (input_array[s] == ' ') {
         j++;
     } else {
-         while (input_array[s] != ' ') {
-            if ((input_array[s] != '-') && (!(((input_array[s] <= '9') && (input_array[s] >= '0')) || (input_array[s] == '.'))) && (input_array[s] != ' ')) {
+        while (input_array[s] != ' ') {
+            if ((input_array[s] != '-')
+                && (!(((input_array[s] <= '9') && (input_array[s] >= '0'))
+                      || (input_array[s] == '.')))
+                && (input_array[s] != ' ')) {
                 j++;
                 break;
             } else {
@@ -35,7 +38,10 @@ int data_check(int s, char* input_array)
         }
 
         while ((input_array[s] != ',') && (input_array[s + 1] != ' ')) {
-            if ((input_array[s] != '-') && (!(((input_array[s] <= '9') && (input_array[s] >= '0')) || (input_array[s] == '.'))) && (input_array[s] != ' ')) {
+            if ((input_array[s] != '-')
+                && (!(((input_array[s] <= '9') && (input_array[s] >= '0'))
+                      || (input_array[s] == '.')))
+                && (input_array[s] != ' ')) {
                 j++;
                 break;
             } else {
@@ -49,7 +55,10 @@ int data_check(int s, char* input_array)
 
         s++;
         while (input_array[s] != ')') {
-            if ((input_array[s] != '-') && (!(((input_array[s] <= '9') && (input_array[s] >= '0')) || (input_array[s] == '.'))) && (input_array[s] != ' ')) {
+            if ((input_array[s] != '-')
+                && (!(((input_array[s] <= '9') && (input_array[s] >= '0'))
+                      || (input_array[s] == '.')))
+                && (input_array[s] != ' ')) {
                 j++;
                 break;
             } else {
