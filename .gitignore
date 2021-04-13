@@ -3,3 +3,4 @@
 *.d
 *.o
 geometry
+geometry_test
