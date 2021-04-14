@@ -22,7 +22,7 @@ int data_check(int s, char* input_array)
 {
     int j = 0;
 
-    if (input_array[s] == ' ') {
+    if ((input_array[s] == ' ') || (input_array[s] == '(') || input_array[s] == '-') {
         j++;
     } else {
         while (input_array[s] != ' ') {
@@ -38,7 +38,7 @@ int data_check(int s, char* input_array)
         }
 
         while ((input_array[s] != ',') && (input_array[s + 1] != ' ')) {
-            if ((input_array[s] != '-')
+            if ((input_array[s] == '-')
                 && (!(((input_array[s] <= '9') && (input_array[s] >= '0'))
                       || (input_array[s] == '.')))
                 && (input_array[s] != ' ')) {
@@ -47,6 +47,10 @@ int data_check(int s, char* input_array)
             } else {
                 s++;
             }
+        }
+
+        if (input_array[s] != ',') {
+            j++;
         }
 
         if (input_array[s + 1] != ' ') {
