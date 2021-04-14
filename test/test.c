@@ -72,6 +72,17 @@ CTEST(name_check, incorrect_name_4)
     ASSERT_EQUAL(exp, real);
 }
 
+CTEST(name_check, incorrect_name_5)
+{
+    char str[8] = {"8848"};
+
+    int real = figur_name_check(str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
 CTEST(name_check, correct_name)
 {
     char str[7] = {"Circle"};
@@ -135,7 +146,7 @@ CTEST(datacheck, empty_data)
 
     int real = data_check(s, str);
 
-    int exp = 3;
+    int exp = 1;
 
     ASSERT_EQUAL(exp, real);
 }
@@ -148,7 +159,7 @@ CTEST(datacheck, empty_data_2)
 
     int real = data_check(s, str);
 
-    int exp = 3;
+    int exp = 1;
 
     ASSERT_EQUAL(exp, real);
 }
@@ -226,7 +237,7 @@ CTEST(datacheck, incorrect_data_comma_2)
 
     int real = data_check(s, str);
 
-    int exp = 2;
+    int exp = 1;
 
     ASSERT_EQUAL(exp, real);
 }
@@ -239,7 +250,7 @@ CTEST(datacheck, incorrect_data_comma_3)
 
     int real = data_check(s, str);
 
-    int exp = 2;
+    int exp = 1;
 
     ASSERT_EQUAL(exp, real);
 }
@@ -273,6 +284,19 @@ CTEST(datacheck, incorrect_data_bracket_2)
 CTEST(datacheck, incorrect_data_minus)
 {
     char str[10] = {"(-0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_excess)
+{
+    char str[10] = {"(0 0 0, 8)"};
 
     int s = 1;
 
