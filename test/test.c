@@ -17,6 +17,17 @@ CTEST(name_check, part_of_name)
     ASSERT_EQUAL(exp, real);
 }
 
+CTEST(name_check, empty_name)
+{
+    char str[1] = {""};
+
+    int real = figur_name_check(str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
 CTEST(name_check, incorrect_name)
 {
     char str[8] = {"8circle"};
@@ -112,6 +123,32 @@ CTEST(name_check, small_letter)
     int real = figur_name_check(str);
 
     int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, empty_data)
+{
+    char str[9] = {""};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 3;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, empty_data_2)
+{
+    char str[9] = {"()"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 3;
 
     ASSERT_EQUAL(exp, real);
 }
