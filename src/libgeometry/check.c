@@ -72,9 +72,9 @@ int data_check(int s, char* input_array)
         }
     }
 
-    if(j > 0) {
+    if (j > 0) {
         j = 1;
     }
-    
+
     return j;
 }
