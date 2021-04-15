@@ -306,3 +306,94 @@ CTEST(datacheck, incorrect_data_excess)
 
     ASSERT_EQUAL(exp, real);
 }
+
+CTEST(datacheck, incorrect_data_1)
+{
+    char str[10] = {"r(0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_2)
+{
+    char str[10] = {" (0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_3)
+{
+    char str[10] = {"-(0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_4)
+{
+    char str[10] = {".(0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_5)
+{
+    char str[10] = {"(.0 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_6)
+{
+    char str[10] = {"(0. 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(datacheck, incorrect_data_7)
+{
+    char str[10] = {"(0- 0, 8)"};
+
+    int s = 1;
+
+    int real = data_check(s, str);
+
+    int exp = 1;
+
+    ASSERT_EQUAL(exp, real);
+}
