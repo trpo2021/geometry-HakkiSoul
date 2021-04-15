@@ -22,12 +22,13 @@ int data_check(int s, char* input_array)
 {
     int j = 0;
 
-    if ((input_array[s] == ' ') || (input_array[s] == '(') || (input_array[s] == '.')
-        || (input_array[s] == '-')) {
+    if ((input_array[s] == ' ') || (input_array[s] == '(')
+        || (input_array[s] == '.') || (input_array[s] == '-')) {
         j++;
     } else {
         while (input_array[s] != ' ') {
-            if ((input_array[s] == ',') || (input_array[s] == '-') || (input_array[s] == '.')) {
+            if ((input_array[s] == ',') || (input_array[s] == '-')
+                || (input_array[s] == '.')) {
                 j++;
             }
             if ((input_array[s] != '-')
