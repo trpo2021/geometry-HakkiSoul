@@ -8,7 +8,7 @@ float area(float radius)
 
 float perimetr(float radius)
 {
-    return(2 * M_PI * radius);
+    return (2 * M_PI * radius);
 }
 
 int figur_name_check(char* input_array)
@@ -92,17 +92,15 @@ int data_check(int s, char* input_array)
     return j;
 }
 
-void circle_intersects (int circles_number, struct circle* circles_data)
+void circle_intersects(int circles_number, struct circle* circles_data)
 {
-    for(int k = 1; k < circles_number; k++)
-    {
-        for(int j = k + 1; j < circles_number + 1; j++)
-        {
+    for (int k = 1; k < circles_number; k++) {
+        for (int j = k + 1; j < circles_number + 1; j++) {
             double m = abs(circles_data[k].x - circles_data[j].x);
             double s = abs(circles_data[k].y - circles_data[j].y);
 
-            if (sqrt(m * m + s * s) <= (circles_data[k].r + circles_data[j].r))
-            {
+            if (sqrt(m * m + s * s)
+                <= (circles_data[k].r + circles_data[j].r)) {
                 printf("Circle №%d intersects Circle №%d \n", k, j);
             }
         }
