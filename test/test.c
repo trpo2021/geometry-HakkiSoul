@@ -6,6 +6,94 @@ CTEST(suite, system_testing)
     ASSERT_EQUAL(1 + 2, 3);
 }
 
+CTEST(area_search, area_1)
+{
+    float radius = 0;
+
+    int real = area(radius);
+
+    int exp = 0;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(area_search, area_2)
+{
+    float radius = 1;
+
+    int real = area(radius);
+
+    int exp = 3.1416;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(area_search, area_3)
+{
+    float radius = 2;
+
+    int real = area(radius);
+
+    int exp = 12.5664;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(area_search, area_4)
+{
+    float radius = 10;
+
+    int real = area(radius);
+
+    int exp = 314.16;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(perimetr_search, perimetr_1)
+{
+    float radius = 0;
+
+    int real = perimetr(radius);
+
+    int exp = 0;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(perimetr_search, perimetr_2)
+{
+    float radius = 1;
+
+    int real = perimetr(radius);
+
+    int exp = 6.2832;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(perimetr_search, perimetr_3)
+{
+    float radius = 2;
+
+    int real = perimetr(radius);
+
+    int exp = 12.5664;
+
+    ASSERT_EQUAL(exp, real);
+}
+
+CTEST(perimetr_search, perimetr_4)
+{
+    float radius = 10;
+
+    int real = perimetr(radius);
+
+    int exp = 62.832;
+
+    ASSERT_EQUAL(exp, real);
+}
+
 CTEST(name_check, part_of_name)
 {
     char str[2] = {"c"};
