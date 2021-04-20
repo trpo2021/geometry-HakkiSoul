@@ -1,9 +1,9 @@
 #pragma once
 
+#include <ctype.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #define pi 3.1416
 
 struct circle {
@@ -20,4 +20,4 @@ float area(float radius);
 
 float perimetr(float radius);
 
-void circle_intersects (int circles_number, struct circle* circles_data);
+void circle_intersects(int circles_number, struct circle* circles_data);
