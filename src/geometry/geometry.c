@@ -1,84 +1,107 @@
-#include <ctype.h>
 #include <libgeometry/geometry.h>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#define K 50
+#define K 40
 
 int main()
 {
-    char array[K];
-    char input_array[K] = {0};
+    struct circle circles_data[K];
 
-    FILE* psyh = NULL;
+    int circles_number = 0;
 
-    psyh = fopen("text.txt", "r");
+    FILE* fuf = NULL;
 
-    int i = 0;
+    fuf = fopen("text.txt", "r");
 
-    if (!psyh) {
-        printf("Cant open this file\n");
+    if (!fuf) 
+    {
+        printf("Can`t open the file\n");
     } else {
-        while (i < K) {
-            fscanf(psyh, "%c", &input_array[i]);
-            ++i;
-        }
-    }
+        while(!feof(fuf))
+        {
+            char x_array[K] = {0};            
+            char y_array[K] = {0};
+            char r_array[K] = {0};
 
-    fclose(psyh);
+            char input_array[K] = {0};
 
-    int k = 0;
-
-    k = figur_name_check(input_array);
-
-    int s = 7;
-    int j = 0;
-    int m;
-
-    m = data_check(s, input_array);
-
-    if (k > 0) {
-        for (j = 0; j < K; j++) {
-            printf("%c", input_array[j]);
-        }
-
-        printf("\n");
-        printf("Invalid figure name\n");
-
-    } else {
-        if (m > 0) {
-            for (m = 0; m < K; m++) {
-                printf("%c", input_array[m]);
-            }
-
+            fgets(input_array, 40, fuf);
             printf("\n");
-            printf("Invalid value\n");
+            
+            int s = 7;
+            int check_1 = 0, check_2 = 0;
 
-        } else {
-            for (m = 0; m < K; m++) {
-                if ((input_array[m] == ',') && (input_array[m + 1] == ' ')) {
-                    for (k = m; input_array[k + 1] != ')'; k++) {
-                        array[k - m] = input_array[k + 1];
+            if ((check_1 = figur_name_check(input_array)) > 0) 
+            {
+                for (int i = 0; i < K; i++) 
+                {
+                    printf("%c", input_array[i]);
+                }
+                printf("Invalid name of figure\n");
+            } else {
+                if ((check_2 = data_check(s, input_array)) > 0) 
+                {
+                    for (int i = 0; i < K; i++) 
+                    {
+                        printf("%c", input_array[i]);
                     }
+                    printf("Invalid value\n");
+                } else {
+                    for (int i = 0; i < K; i++) 
+                    {
+
+                        if (input_array[i] == '(') 
+                        {                            
+                            for (int k = i; input_array[k + 1] != ' '; k++) 
+                            {
+                                x_array[k - i] = input_array[k + 1];
+                            }
+                        }
+
+                        if (input_array[i] == ' ') {                              
+                            for (int k = i - 1; input_array[k] != ','; k++) { 
+                                y_array[k - i] = input_array[k];
+                            }
+                        } 
+
+                        if ((input_array[i] == ',') && (input_array[i + 1] == ' ')) {
+                            for (int k = i; input_array[k + 1] != ')'; k++) {
+                                r_array[k - i] = input_array[k + 1];
+                            }
+                        }
+                    }
+
+                    circles_number++;
+
+                    float radius = atof(r_array);
+                    float a = 0, p = 0;
+
+                    circles_data[circles_number].x = atof(x_array);
+                    circles_data[circles_number].y = atof(y_array);
+                    circles_data[circles_number].r = radius;
+
+                    a = area(radius);
+                    p = perimetr(radius);
+
+                    printf("Circle №%d: ", circles_number); 
+
+                    for (int i = 0; i < K; i++) {
+                        printf("%c", input_array[i]);
+                    }
+
+                    printf("\n");
+                    printf("area = %.2f\n", a);
+                    printf("perimeter = %.2f\n", p);
                 }
             }
-
-            float area = 0, perimetr = 0;
-            int radius = 0;
-
-            radius = atoi(array);
-            area = M_PI * radius * radius;
-            perimetr = 2 * M_PI * radius;
-
-            for (m = 0; m < K; m++) {
-                printf("%c", input_array[m]);
-            }
-
-            printf("\n");
-            printf("perimeter = %.3f\n", perimetr);
-            printf("area = %.3f\n", area);
         }
     }
 
+    fclose(fuf);
+    printf("\n");
+
+    if(circles_number > 1)
+    {
+        circle_intersects (circles_number, circles_data);
+    }
+    
     return 0;
 }
