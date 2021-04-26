@@ -96,8 +96,8 @@ void circle_intersects(int circles_number, struct circle* circles_data)
 {
     for (int k = 1; k < circles_number; k++) {
         for (int j = k + 1; j < circles_number + 1; j++) {
-            double m = abs(circles_data[k].x - circles_data[j].x);
-            double s = abs(circles_data[k].y - circles_data[j].y);
+            double m = fabs(circles_data[k].x - circles_data[j].x);
+            double s = fabs(circles_data[k].y - circles_data[j].y);
 
             if (sqrt(m * m + s * s)
                 <= (circles_data[k].r + circles_data[j].r)) {
