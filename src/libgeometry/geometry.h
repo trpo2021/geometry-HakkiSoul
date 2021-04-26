@@ -7,8 +7,8 @@
 #define pi 3.1416
 
 struct circle {
-    int x;
-    int y;
+    float x;
+    float y;
     float r;
 };
 
