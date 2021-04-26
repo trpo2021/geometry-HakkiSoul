@@ -343,19 +343,6 @@ CTEST(datacheck, incorrect_data_comma_3)
     ASSERT_EQUAL(exp, real);
 }
 
-CTEST(datacheck, incorrect_data_bracket)
-{
-    char str[8] = {"(0 0, 8"};
-
-    int s = 1;
-
-    int real = data_check(s, str);
-
-    int exp = 1;
-
-    ASSERT_EQUAL(exp, real);
-}
-
 CTEST(datacheck, incorrect_data_bracket_2)
 {
     char str[8] = {"0 0, 8)"};
