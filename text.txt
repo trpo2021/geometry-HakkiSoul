@@ -1,0 +1,4 @@
+Circle(0 0, 8)
+Circle(0 0, 4)
+Circle(0 0, 12)
+Circle(0 0, 6)
